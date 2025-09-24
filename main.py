@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import requests
@@ -590,6 +591,7 @@ def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
                 continue
             sms_text = row[0]
             label = row[1]
+            # ground truth is phishing if the label is EITHER phishing or spam
             ground_truth_is_phishing = (label.strip().lower() != "legitimate")
             predicted_is_phishing = bool(detector.detect_sms_phishing(sms_text))
             if predicted_is_phishing == ground_truth_is_phishing:
@@ -598,10 +600,9 @@ def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
                 num_incorrect += 1
             total_evaluated += 1
 
-    denom = num_correct + num_incorrect
-    if denom == 0:
+    if total_evaluated == 0:
         return 0.0
-    return (num_correct / denom) * 100.0
+    return (num_correct / total_evaluated) * 100.0
 
 
 def detect_sms_phishing(
@@ -628,10 +629,12 @@ def detect_sms_phishing(
 
 # Example usage
 if __name__ == "__main__":
+    rows = 10
+    print("Accuracy on rows: " + str(evaluate_detector_on_csv("/home/myid/zl26271/robust-smishing/SmishX/data/bad_dataset_1.csv", rows)))
     # Example SMS message
-    test_sms = "[US POSTAL] Your package is ready for delivery. Confirm your address to avoid returns: https://dik.si/postal"
-    # test_sms = "Need to set up data and picture messaging? Mint mobile will be sending you a message with instructions shortly. Or check it out bit.ly/mintapn"
-    # Initialize detector (replace with your actual API keys)
-    detector = SMSPhishingDetector(openai_api_key, jina_api_key, google_cloud_API_key, search_engine_ID)
-    result = detector.detect_sms_phishing(test_sms, "analysis_output")
-    print(f"Phishing detected: {result}")
+    # test_sms = "[US POSTAL] Your package is ready for delivery. Confirm your address to avoid returns: https://dik.si/postal"
+    # # test_sms = "Need to set up data and picture messaging? Mint mobile will be sending you a message with instructions shortly. Or check it out bit.ly/mintapn"
+    # # Initialize detector (replace with your actual API keys)
+    # detector = SMSPhishingDetector(openai_api_key, jina_api_key, google_cloud_API_key, search_engine_ID)
+    # result = detector.detect_sms_phishing(test_sms, "analysis_output")
+    # print(f"Phishing NOTLMAO detected: {result}")
