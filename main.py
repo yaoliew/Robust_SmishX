@@ -282,11 +282,18 @@ class SMSPhishingDetector:
     def _take_screenshot(self, url: str, screenshot_path: str):
         """Take screenshot using Node.js crawler."""
         try:
+            # Set up environment with conda environment's bin directory in PATH
+            env = os.environ.copy()
+            conda_env_path = "/home/myid/zl26271/.conda/envs/SmishX/bin"
+            if conda_env_path not in env.get('PATH', ''):
+                env['PATH'] = f"{conda_env_path}:{env.get('PATH', '')}"
+            
             subprocess.run(
                 ['node', 'crawler_proj/crawler.js', url, screenshot_path],
                 check=True,
                 capture_output=True,
                 text=True,
+                env=env,
             )
             print(f"Screenshot saved to {screenshot_path}")
         except subprocess.SubprocessError as e:
@@ -524,6 +531,77 @@ class SMSPhishingDetector:
     def _get_user_friendly_prompt(self) -> str:
         """Get prompt for generating user-friendly output."""
         return """Based on the detailed analysis, I want you to create a simple and easy-to-understand response to tell the user whether the text message is a phishing attempt or a legitimate message. Use plain language and avoid technical terms like URL or HTTP headers. Explain your conclusion in 3 sentences, focusing on whether the message seems suspicious or safe. Provide a simple reason to support your conclusion, including clear evidence such as a suspicious website link or an urgent tone in the message. The response should be reassuring and concise, easy for anyone to understand."""
+
+
+def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
+    """
+    Evaluate the SMSPhishingDetector on the first x rows of a CSV file.
+
+    The CSV is expected to have the SMS text in the first column and the label
+    in the second column. If the label is "legitimate", the ground truth is False
+    (not phishing). Any other label is treated as True (phishing).
+
+    Args:
+        csv_path (str): Absolute path to the CSV file.
+        x (int): Number of rows from the top (after header) to evaluate.
+
+    Returns:
+        float: Accuracy percentage as (correct / (correct + incorrect)) * 100.
+    """
+    import csv
+
+    detector = SMSPhishingDetector(
+        openai_api_key=openai_api_key,
+        jina_api_key=jina_api_key,
+        google_cloud_API_key=google_cloud_API_key,
+        search_engine_id=search_engine_ID,
+    )
+
+    total_evaluated = 0
+    num_correct = 0
+    num_incorrect = 0
+
+    with open(csv_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        # Skip header if present
+        header = next(reader, None)
+        # Heuristically detect if first row is a header by checking known column names
+        if header and len(header) >= 2 and header[0].strip().lower() == "sms" and header[1].strip().lower() == "label":
+            pass
+        else:
+            # If not a header, process it as data
+            if header is not None:
+                row = header
+                if len(row) >= 2 and total_evaluated < x:
+                    sms_text = row[0]
+                    label = row[1]
+                    ground_truth_is_phishing = (label.strip().lower() != "legitimate")
+                    predicted_is_phishing = bool(detector.detect_sms_phishing(sms_text))
+                    if predicted_is_phishing == ground_truth_is_phishing:
+                        num_correct += 1
+                    else:
+                        num_incorrect += 1
+                    total_evaluated += 1
+
+        for row in reader:
+            if total_evaluated >= x:
+                break
+            if len(row) < 2:
+                continue
+            sms_text = row[0]
+            label = row[1]
+            ground_truth_is_phishing = (label.strip().lower() != "legitimate")
+            predicted_is_phishing = bool(detector.detect_sms_phishing(sms_text))
+            if predicted_is_phishing == ground_truth_is_phishing:
+                num_correct += 1
+            else:
+                num_incorrect += 1
+            total_evaluated += 1
+
+    denom = num_correct + num_incorrect
+    if denom == 0:
+        return 0.0
+    return (num_correct / denom) * 100.0
 
 
 def detect_sms_phishing(
