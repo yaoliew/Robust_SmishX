@@ -66,3 +66,7 @@ logs/
 *.temp
 
 #shell file
+run_project.sh
+
+#prompt input parameters
+output/
