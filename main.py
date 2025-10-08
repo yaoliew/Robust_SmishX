@@ -629,12 +629,4 @@ def detect_sms_phishing(
 
 # Example usage
 if __name__ == "__main__":
-    rows = 100
-    print("Accuracy on rows: " + str(evaluate_detector_on_csv("/home/myid/zl26271/robust-smishing/Robust_SmishX/data/dataset.csv", rows)))
-    # Example SMS message
-    # test_sms = "[US POSTAL] Your package is ready for delivery. Confirm your address to avoid returns: https://dik.si/postal"
-    # # test_sms = "Need to set up data and picture messaging? Mint mobile will be sending you a message with instructions shortly. Or check it out bit.ly/mintapn"
-    # # Initialize detector (replace with your actual API keys)
-    # detector = SMSPhishingDetector(openai_api_key, jina_api_key, google_cloud_API_key, search_engine_ID)
-    # result = detector.detect_sms_phishing(test_sms, "analysis_output")
-    # print(f"Phishing NOTLMAO detected: {result}")
+    print(test_detector_on_text("[US POSTAL] Your package is ready for delivery. Confirm your address to avoid returns: https://dik.si/postal"))
