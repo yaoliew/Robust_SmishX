@@ -584,10 +584,13 @@ def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
                         num_incorrect += 1
                     total_evaluated += 1
 
-        for row in reader:
+        for idx, row in enumerate(reader):
             if total_evaluated >= x:
                 break
             if len(row) < 2:
+                continue
+            # Skip every other row (read only even-indexed rows)
+            if idx % 2 != 0:
                 continue
             sms_text = row[0]
             label = row[1]
@@ -638,4 +641,5 @@ def test_detector_on_text(text: str) -> str:
 
 # Example usage
 if __name__ == "__main__":
-    print(test_detector_on_text("[US POSTAL] Your package is ready for delivery. Confirm your address to avoid returns: https://dik.si/postal"))
+    print("yoyoyo")
+    test_detector_on_file("data/", 100)
