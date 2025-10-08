@@ -642,4 +642,4 @@ def test_detector_on_text(text: str) -> str:
 # Example usage
 if __name__ == "__main__":
     print("yoyoyo")
-    test_detector_on_file("data/", 100)
+    test_detector_on_file("/home/myid/zl26271/robust-smishing/Robust_SmishX/data/augmented_dataset.csv", 200)
