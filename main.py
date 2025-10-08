@@ -626,6 +626,15 @@ def detect_sms_phishing(
     detector = SMSPhishingDetector(openai_api_key, jina_api_key)
     return detector.detect_sms_phishing(sms_message, output_dir)
 
+def test_detector_on_file(file_path: str, rows: int):
+    detector = SMSPhishingDetector(openai_api_key, jina_api_key, google_cloud_API_key, search_engine_ID)
+    result = "Accuracy on rows: " + str(evaluate_detector_on_csv(file_path, rows))
+    return result
+
+def test_detector_on_text(text: str) -> str:
+    detector = SMSPhishingDetector(openai_api_key, jina_api_key, google_cloud_API_key, search_engine_ID)
+    result = detector.detect_sms_phishing(text, "analysis_output")
+    return result
 
 # Example usage
 if __name__ == "__main__":
