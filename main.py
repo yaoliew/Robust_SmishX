@@ -583,6 +583,11 @@ def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
                     else:
                         num_incorrect += 1
                     total_evaluated += 1
+                    
+                    # Print progress every 5 evaluations
+                    if total_evaluated % 5 == 0 or total_evaluated == 1:
+                        current_accuracy = (num_correct / total_evaluated) * 100 if total_evaluated > 0 else 0
+                        print(f"Progress: {total_evaluated}/{x} rows evaluated | Current accuracy: {current_accuracy:.2f}%")
 
         for idx, row in enumerate(reader):
             if total_evaluated >= x:
@@ -602,6 +607,11 @@ def evaluate_detector_on_csv(csv_path: str, x: int) -> float:
             else:
                 num_incorrect += 1
             total_evaluated += 1
+            
+            # Print progress every 5 evaluations
+            if total_evaluated % 5 == 0 or total_evaluated == 1:
+                current_accuracy = (num_correct / total_evaluated) * 100 if total_evaluated > 0 else 0
+                print(f"Progress: {total_evaluated}/{x} rows evaluated | Current accuracy: {current_accuracy:.1f}%")
 
     if total_evaluated == 0:
         return 0.0

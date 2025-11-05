@@ -1,0 +1,22 @@
+RUNNING THE QWEN MODEL
+# Qwen2-VL-7B-Instruct model with SGLang (working configuration)
+python -m sglang.launch_server --model Qwen/Qwen2-VL-7B-Instruct --device cpu --trust-remote-code --attention-backend torch_native
+
+# Alternative: Use Hugging Face Transformers directly (simpler but no server)
+python -c "
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+# Load Qwen model
+tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen2-VL-7B-Instruct', trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained('Qwen/Qwen2-VL-7B-Instruct', trust_remote_code=True)
+
+# Move to GPU if available
+if torch.cuda.is_available():
+    model = model.to('cuda')
+    print(f'Model moved to GPU: {next(model.parameters()).device}')
+else:
+    print('Using CPU')
+
+print('Qwen model ready for inference!')
+"

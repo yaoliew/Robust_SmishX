@@ -1,0 +1,85 @@
+{
+  "is_URL": true,
+  "URLs": {
+    "0": {
+      "URL": "https://youtu.be/ZFUDydctV78",
+      "final_URL": "https://www.youtube.com/supported_browsers?next_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZFUDydctV78&feature=youtu.be",
+      "redirect_chain": [
+        [
+          "https://youtu.be/ZFUDydctV78",
+          303
+        ],
+        [
+          "https://www.youtube.com/watch?v=ZFUDydctV78&feature=youtu.be",
+          302
+        ],
+        [
+          "https://www.youtube.com/supported_browsers?next_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZFUDydctV78&feature=youtu.be",
+          200
+        ]
+      ],
+      "URL_content": "Title: Your browser is up to date\n\nURL Source: https://www.youtube.com/supported_browsers?next_url=https://www.youtube.com/watch?v=ZFUDydctV78&feature=youtu.be\n\nMarkdown Content:\nYou can use YouTube's latest features!\n\n*   [![Image 1](https://www.youtube.com/img/desktop/supported_browsers/chrome.png) ### Google Chrome](https://www.google.com/chrome/index.html?brand=CHNY&utm_campaign=en&utm_source=en-et-youtube&utm_medium=et)\n*   [![Image 2](https://www.youtube.com/img/desktop/supported_browsers/edgium.png) ### Microsoft Edge](https://www.microsoft.com/edge)\n*   [![Image 3](https://www.youtube.com/img/desktop/supported_browsers/opera.png) ### Opera](https://www.opera.com/)\n*   [![Image 4](https://www.youtube.com/img/desktop/supported_browsers/firefox.png) ### Mozilla Firefox](https://www.mozilla.org/firefox/new/?utm_source=youtube.com&utm_medium=referral&utm_campaign=supported-browser)\n*   [![Image 5](https://www.youtube.com/img/desktop/supported_browsers/safari.png) ### Safari](https://www.apple.com/safari/)\n\n[Browse YouTube](https://www.youtube.com/watch?v=ZFUDydctV78)\n",
+      "html_summary": "The website is a YouTube page that informs users about the supported browsers for YouTube. The page lists five browsers: Google Chrome, Microsoft Edge, Opera, Mozilla Firefox, and Safari. Users can click on each browser to visit their respective websites. There is also a link to browse YouTube. The content is not hidden behind a verification wall.",
+      "domain_info": "non",
+      "screenshot_path": "non",
+      "Image_content": "non",
+      "brand_search": {
+        "0": {
+          "brand_name": "Jio",
+          "brand_domain": []
+        }
+      }
+    },
+    "1": {
+      "URL": "https://www.jio.com/dl/data_voucher",
+      "final_URL": "https://www.jio.com/dl/data_voucher/",
+      "redirect_chain": [
+        [
+          "https://www.jio.com/dl/data_voucher",
+          301
+        ],
+        [
+          "http://www.jio.com/dl/data_voucher/",
+          302
+        ],
+        [
+          "https://www.jio.com/dl/data_voucher/",
+          200
+        ]
+      ],
+      "URL_content": "Title: Best Prepaid, Postpaid Plans, WiFi Connection & Mobile Apps | Jio\n\nURL Source: https://www.jio.com/dl/data_voucher/\n\nMarkdown Content:\nBest Prepaid, Postpaid Plans, WiFi Connection & Mobile Apps | Jio\n\n===============\n",
+      "html_summary": "The website, Jio, offers a variety of prepaid and postpaid plans, as well as WiFi connection and mobile apps. The content on the website is focused on providing information about these services, including pricing and availability. The website also has a robot-human verification page, which is common for both phishing and legitimate websites. It does not necessarily indicate malicious intent.",
+      "domain_info": "non",
+      "screenshot_path": "non",
+      "Image_content": "non",
+      "brand_search": {
+        "0": {
+          "brand_name": "Jio",
+          "brand_domain": []
+        }
+      }
+    }
+  },
+  "is_brand": true,
+  "brands": [
+    "Jio"
+  ],
+  "SMS": "90% daily data quota used as on 03-May-22 00:44. Jio Number : 6280368198 For tips on how to manage data quota effectively, click https://youtu.be/ZFUDydctV78 If you do not have any other data plan, your internet speed will be reduced on consumption of 1.50 GB. To continue enjoying high speed internet, click https://www.jio.com/dl/data_voucher and recharge. Dial 1991, to know your current balance, validity, plan details and for exciting recharge plans.",
+  "detect_result": {
+    "brand_impersonated": "Jio",
+    "URL": "https://www.jio.com/dl/data_voucher",
+    "rationales": [
+      "The SMS is promoting a data quota usage and offers a recharge plan, which is a legitimate service provided by Jio.",
+      "The URL is from Jio's official website, which is a known organization.",
+      "The SMS does not contain any promotions, advertisements, or suspicious links.",
+      "The SMS does not contain any requests for personal information or urgent language.",
+      "The SMS does not contain any grammatical or spelling errors."
+    ],
+    "brief_reason": "The SMS is promoting a legitimate service provided by Jio and does not contain any suspicious characteristics.",
+    "category": false,
+    "advice": "The SMS is legitimate and does not pose any risk. It is recommended to follow the instructions provided in the SMS to manage data quota effectively and recharge if needed."
+  },
+  "user_friendly_output": "The text message is a legitimate message from Jio. It is promoting a data quota usage and offers a recharge plan, which is a legitimate service provided by Jio. The URL is from Jio's official website, which is a known organization.",
+  "detection_prompt": "I want you to act as a spam detector to determine whether a given SMS is phishing, spam, or legitimate. Your analysis should be thorough and evidence-based. Analyze the SMS by following these steps:\n1. If the SMS is promoting any of the following categories: Online gambling, bets, spins, adult content, digital currency, lottery, it is either spam or phishing.\n2. The SMS is legitimate if it is from known organizations, such as appointment reminders, OTP (One-Time Password) verification, delivery notifications, account updates, tracking information, or other expected messages.\n3. The SMS is considered legitimate if it involves a conversation between friends, family members, or colleagues.\n4. Promotions and advertisements are considered spam. The SMS is spam if it is promotion from legitimate companies and is not impersonating any brand, but it is advertisements, app download promotions, sales promotions, donation requests, event promotions, online loan services, or other irrelevant information.\n5. The SMS is phishing if it is fraudulent and attempts to deceive recipients into providing sensitive information or clicking malicious links. Phishing SMS may exhibit the following characteristics:\nPromotions or Rewards: Some phishing SMS offer fake prizes, rewards, or other incentives to lure recipients into clicking links or providing personal information.\nUrgent or Alarming Language: Phishing messages often create a sense of urgency or fear, such as threats of account suspension, missed payments, or urgent security alerts.\nSuspicious Links: Phishing messages may contain links to fake websites designed to steal personal information.\nRequests for Personal Information: Phishing SMS may ask for sensitive information like passwords, credit card numbers, social security numbers, or other personal details.\nGrammatical and Spelling Errors: Many phishing messages contain grammatical mistakes or unusual wording, which can be a red flag for recipients.\nExpired Domain: Phishing websites often use domains that expire quickly or are already listed for sale.\nInconsistency: The URL may be irrelevant to the message content.\n6. Please be aware that: It is common to see shortened URLs in SMS. You can get the expanded URL from the provided redirection chain. Both phishing and legitimate URLs can be shortened. And both phishing and legitimate websites may use a robot-human verification page (CAPTCHA-like mechanism) before granting access the content.\n7. I will provide you with some external information if there is a URL in the SMS. The information includes:\n- Redirect Chain: The URL may redirect through multiple intermediate links before reaching the final destination; if any of them is flagged as phishing, the original URL becomes suspicious.\n- Brand Search Information: The top five results from a Google search of the brand name. You can compare if the URL's domain matches the results from Google.\n- Screenshot Description: A description of the website's screenshot, highlighting any notable visual elements.\n- HTML Content Summary: The title of HTML, and the summary of its content.\n- Domain Information: The domain registration details, including registrar, creation date, and DNS records, which are analyzed to verify the domain's legitimacy.\n8. Please give your rationales before making a decision. And your output should be in JSON format and should not have any other output:\n- brand_impersonated: brand name associated with the SMS, if applicable.\n- URL: any URL appears in SMS, if no URL, answer \"non\".\n- rationales: detailed rationales for the determination, up to 500 words. Directly give sentences, do not categorize the rationales. Only tell the reasons why the SMS is legitimate or not, do not include the reasons why the SMS is spam or phishing.\n- brief_reason: brief reason for the determination.\n- category: True or False. If the SMS is legitimate, output False. Else, output True.\n- advice: If the SMS is phishing, output potential risk and your advice for the recipients, such as \"Do not respond to this message or access the link.\"\n\nBelow is the information of the SMS:\n- SMS to be analyzed: 90% daily data quota used as on 03-May-22 00:44. Jio Number : 6280368198 For tips on how to manage data quota effectively, click https://youtu.be/ZFUDydctV78 If you do not have any other data plan, your internet speed will be reduced on consumption of 1.50 GB. To continue enjoying high speed internet, click https://www.jio.com/dl/data_voucher and recharge. Dial 1991, to know your current balance, validity, plan details and for exciting recharge plans.\n- There are 2 URLs in the SMS.\n- URL 0: https://youtu.be/ZFUDydctV78\n- Redirect Chain of https://youtu.be/ZFUDydctV78: [('https://youtu.be/ZFUDydctV78', 303), ('https://www.youtube.com/watch?v=ZFUDydctV78&feature=youtu.be', 302), ('https://www.youtube.com/supported_browsers?next_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DZFUDydctV78&feature=youtu.be', 200)]\n- Html Content Summary of https://youtu.be/ZFUDydctV78: The website is a YouTube page that informs users about the supported browsers for YouTube. The page lists five browsers: Google Chrome, Microsoft Edge, Opera, Mozilla Firefox, and Safari. Users can click on each browser to visit their respective websites. There is also a link to browse YouTube. The content is not hidden behind a verification wall.\n- Brand 0: Jio\n- The top five results from a Google search of the brand name: []\n- URL 1: https://www.jio.com/dl/data_voucher\n- Redirect Chain of https://www.jio.com/dl/data_voucher: [('https://www.jio.com/dl/data_voucher', 301), ('http://www.jio.com/dl/data_voucher/', 302), ('https://www.jio.com/dl/data_voucher/', 200)]\n- Html Content Summary of https://www.jio.com/dl/data_voucher: The website, Jio, offers a variety of prepaid and postpaid plans, as well as WiFi connection and mobile apps. The content on the website is focused on providing information about these services, including pricing and availability. The website also has a robot-human verification page, which is common for both phishing and legitimate websites. It does not necessarily indicate malicious intent.\n- Brand 0: Jio\n- The top five results from a Google search of the brand name: []\n",
+  "model_used": "Qwen2-VL-7B-Instruct"
+}

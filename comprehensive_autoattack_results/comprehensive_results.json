@@ -1,0 +1,62 @@
+{
+  "clean_accuracy": 0.5,
+  "evaluations": [
+    {
+      "epsilon": 0.1,
+      "norm": "L2",
+      "version": "standard",
+      "adversarial_accuracy": 0.0,
+      "robust_accuracy": 0.0,
+      "num_samples": 10,
+      "error": "index -3 is out of bounds for dimension 1 with size 2"
+    },
+    {
+      "epsilon": 0.1,
+      "norm": "Linf",
+      "version": "standard",
+      "adversarial_accuracy": 0.0,
+      "robust_accuracy": 0.0,
+      "num_samples": 10,
+      "error": "index -3 is out of bounds for dimension 1 with size 2"
+    },
+    {
+      "epsilon": 0.2,
+      "norm": "L2",
+      "version": "standard",
+      "adversarial_accuracy": 0.0,
+      "robust_accuracy": 0.0,
+      "num_samples": 10,
+      "error": "index -3 is out of bounds for dimension 1 with size 2"
+    },
+    {
+      "epsilon": 0.2,
+      "norm": "Linf",
+      "version": "standard",
+      "adversarial_accuracy": 0.0,
+      "robust_accuracy": 0.0,
+      "num_samples": 10
+    }
+  ],
+  "summary": {
+    "min_adversarial_accuracy": 0.0,
+    "max_adversarial_accuracy": 0.0,
+    "mean_adversarial_accuracy": 0.0,
+    "std_adversarial_accuracy": 0.0
+  },
+  "metadata": {
+    "model_name": "bert-base-uncased",
+    "num_samples": 10,
+    "epsilon_values": [
+      0.1,
+      0.2
+    ],
+    "norm_types": [
+      "L2",
+      "Linf"
+    ],
+    "versions": [
+      "standard"
+    ],
+    "dataset_path": null
+  }
+}
